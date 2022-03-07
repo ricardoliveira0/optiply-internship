@@ -27,3 +27,12 @@ button {
     margin-left: 5vw;
     margin-top: 2vh;
 }
+
+.container {
+    height: 100%;
+}
+
+.side-menu {
+    height: 100%;
+    width: 20vw;
+}

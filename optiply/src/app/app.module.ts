@@ -7,6 +7,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list'; 
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { MatSelectModule } from '@angular/material/select';
     MatToolbarModule,
     MatIconModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSidenavModule,
+    MatListModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
