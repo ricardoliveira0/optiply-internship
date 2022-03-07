@@ -1,4 +1,14 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+button {
+    background-color: Transparent;
+    border: none;
+    outline: none;
+}
+
+.navbar-icon {
+    display: flex;
+}
+
 .spacer {
     flex: 1 1 auto;
 }
@@ -9,4 +19,11 @@
     height: 3vh;
     max-height: 48px;
     min-height: 24px;
+}
+
+.account-selector {
+    display: flex;
+    font-size: 1.5vh;
+    margin-left: 5vw;
+    margin-top: 2vh;
 }
