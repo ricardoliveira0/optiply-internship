@@ -10,6 +10,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list'; 
 import { MatDividerModule } from '@angular/material/divider';
+import { DashboardModule } from './dashboard';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MatDividerModule } from '@angular/material/divider';
     MatSelectModule,
     MatSidenavModule,
     MatListModule,
-    MatDividerModule
+    MatDividerModule,
+    DashboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
