@@ -1,0 +1,12 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+.spacer {
+    flex: 1 1 auto;
+}
+
+.optiply-logo {
+    display: flex;
+    margin-left: 1.5vw;
+    height: 3vh;
+    max-height: 48px;
+    min-height: 24px;
+}
