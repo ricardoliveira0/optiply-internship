@@ -3,3 +3,9 @@
     display: flex !important;
     align-items: center;
 }
+
+.page-tabs {
+    width: 75%;
+    margin: auto;
+    margin-top: 2.5vh;
+}
