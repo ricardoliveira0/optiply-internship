@@ -29,3 +29,13 @@
     margin-top: 5vh;
     width: 80%;
 }
+
+.srv-lvl-table {
+    margin: auto;
+    margin-top: 5vh;
+    width: 80%;
+}
+
+.srv-lvl-table table {
+    width: 100%;
+}

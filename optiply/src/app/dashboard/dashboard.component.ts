@@ -4,6 +4,19 @@ import { DataService } from './data.service';
 
 declare var google: any;
 
+export interface DataInfo {
+  id: string;
+  desiredLvl: number;
+  currentLvl: number;
+  invValue: number;
+  stockTurnover: number;
+}
+
+const SERVICE_DATA: DataInfo[] = [
+  {id: 'A', desiredLvl: 99.0, currentLvl: 100, invValue: 72717.10, stockTurnover: 204.6}
+];
+
+
 @Component({
   selector: 'optiply-dashboard',
   templateUrl: './dashboard.component.html',
@@ -56,5 +69,8 @@ export class DashboardComponent implements OnInit {
       'height': 400
     };
   }
+
+  displayedColumns: string[] = ['id', 'desiredLvl', 'currentLvl', 'invValue', 'stockTurnover'];
+  dataSrc = SERVICE_DATA;
 
 }

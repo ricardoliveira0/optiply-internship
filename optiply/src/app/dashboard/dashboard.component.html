@@ -30,3 +30,37 @@
     <h3 class="mat-h3">Service Level (%)</h3>
     <div id="srv-lvl-chart"></div>
 </div>
+
+<div class="srv-lvl-table">
+    <table mat-table [dataSource]="dataSrc" class="mat-elevation-z8">
+        
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let service"> {{service.id}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="desiredLvl">
+            <th mat-header-cell *matHeaderCellDef> Desired Service Level (%) </th>
+            <td mat-cell *matCellDef="let service"> {{service.desiredLvl}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="currentLvl">
+            <th mat-header-cell *matHeaderCellDef> Current Service Level (%) </th>
+            <td mat-cell *matCellDef="let service"> {{service.currentLvl}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="invValue">
+            <th mat-header-cell *matHeaderCellDef> Inventory Value (€) </th>
+            <td mat-cell *matCellDef="let service"> {{service.invValue}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="stockTurnover">
+            <th mat-header-cell *matHeaderCellDef> Stock Turnover (days) </th>
+            <td mat-cell *matCellDef="let service"> {{service.stockTurnover}} </td>
+        </ng-container>
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        
+    </table>
+</div>

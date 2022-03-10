@@ -4,6 +4,7 @@ import { DashboardComponent } from './dashboard.component';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatTableModule } from '@angular/material/table';
 
 import { DataService } from './data.service';
 
@@ -15,7 +16,8 @@ import { DataService } from './data.service';
   imports: [
     CommonModule,
     MatCardModule,
-    MatDividerModule
+    MatDividerModule,
+    MatTableModule
   ],
   exports: [
     DashboardComponent
