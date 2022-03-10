@@ -1,0 +1,15 @@
+.page-title {
+    width: 90%;
+    margin-left: 2.5%;
+    margin-top: 2vh;
+}
+
+.top-info {
+    display: flex;
+}
+
+.top-info mat-card {
+    width: 12.5vw;
+    margin: auto;
+    margin-top: 2.5vh;
+}
