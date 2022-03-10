@@ -1,9 +1,4 @@
-.page-title {
-    width: 90%;
-    margin-left: 2.5%;
-    margin-top: 2vh;
-}
-
+@import url('../app.css');
 .top-info {
     display: flex;
 }

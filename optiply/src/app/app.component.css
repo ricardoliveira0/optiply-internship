@@ -9,10 +9,6 @@ button {
     display: flex;
 }
 
-.spacer {
-    flex: 1 1 auto;
-}
-
 .optiply-logo {
     display: flex;
     margin-left: 1.5vw;
