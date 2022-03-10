@@ -11,6 +11,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list'; 
 import { MatDividerModule } from '@angular/material/divider';
 import { DashboardModule } from './dashboard';
+import { PurchaseModule } from './purchase';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { DashboardModule } from './dashboard';
     MatSidenavModule,
     MatListModule,
     MatDividerModule,
-    DashboardModule
+    DashboardModule,
+    PurchaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
