@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { DataService } from './data.service';
+
+declare var google: any;
+
 @Component({
   selector: 'optiply-dashboard',
   templateUrl: './dashboard.component.html',
@@ -7,9 +11,50 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
+
+  private data: any;
 
   ngOnInit(): void {
+    this.dataService.getData().subscribe(
+      data => {
+        this.data = data;
+        this.init();
+      });
+  }
+
+  init(): void {
+    if(typeof(google) !== 'undefined') {
+      google.charts.load('current', {'packages':['corechart']});
+      setTimeout(() => {
+        google.charts.setOnLoadCallback(this.displayChart());
+      }, 1000);
+    }
+  }
+
+  displayChart(): void {
+    const el = document.getElementById('srv-lvl-chart');
+    const chart = new google.visualization.LineChart(el);
+
+    chart.draw(this.getDataTable(), this.getOptions());
+  }
+
+  getDataTable(): any {
+    const data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'Month');
+    data.addColumn('number', 'Amount');
+    data.addRows(this.data);
+
+    return data;
+  }
+
+  getOptions(): any {
+    return {
+      'title': '',
+      'width': 1500,
+      'height': 400
+    };
   }
 
 }

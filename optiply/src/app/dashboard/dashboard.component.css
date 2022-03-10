@@ -13,3 +13,19 @@
     margin: auto;
     margin-top: 2.5vh;
 }
+
+.service-lvl {
+    display: flex;
+    margin-top: 2.5vh;
+}
+
+.service-lvl .mat-h3 {
+    margin-left: 2.5%;
+    position: absolute;
+}
+
+.service-lvl #srv-lvl-chart {
+    margin: auto;
+    margin-top: 5vh;
+    width: 80%;
+}

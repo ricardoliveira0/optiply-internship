@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 
+import { DataService } from './data.service';
 
 
 @NgModule({
@@ -18,6 +19,9 @@ import { MatDividerModule } from '@angular/material/divider';
   ],
   exports: [
     DashboardComponent
+  ],
+  providers: [
+    DataService
   ]
 })
 export class DashboardModule { }
