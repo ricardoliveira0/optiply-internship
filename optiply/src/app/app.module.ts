@@ -10,6 +10,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list'; 
 import { MatDividerModule } from '@angular/material/divider';
+import { AppRoutingModule } from './app-routing.module';
 import { DashboardModule } from './dashboard';
 import { PurchaseModule } from './purchase';
 
@@ -28,7 +29,8 @@ import { PurchaseModule } from './purchase';
     MatListModule,
     MatDividerModule,
     DashboardModule,
-    PurchaseModule
+    PurchaseModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
