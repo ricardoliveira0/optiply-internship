@@ -31,13 +31,13 @@
 <mat-drawer-container class="container">
   <mat-drawer #drawer mode="side" class="side-menu">
     <mat-list>
-      <mat-list-item>
-        <button mat-icon-button [routerLink]="['/optiply-dashboard']">
+      <mat-list-item mat-icon-button [routerLink]="['/optiply-dashboard']" routerLinkActive="active-item">
+        <button>
           <mat-icon>dashboard</mat-icon> Dashboard
         </button>
       </mat-list-item>
-      <mat-list-item>
-        <button mat-icon-button [routerLink]="['/optiply-purchase']">
+      <mat-list-item mat-icon-button [routerLink]="['/optiply-purchase']" routerLinkActive="active-item">
+        <button>
           <mat-icon>attach_money</mat-icon> Purchase
         </button>
       </mat-list-item>
