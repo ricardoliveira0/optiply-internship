@@ -1,4 +1,4 @@
-@import url('../app.css');
+@import url('../../app.css');
 .page-title {
     display: flex !important;
     align-items: center;

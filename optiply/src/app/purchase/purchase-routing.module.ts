@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { PurchaseComponent } from './purchase.component';
+import { PurchaseComponent } from './components';
 
 export const PurchaseRoutes: Routes = [
     {
