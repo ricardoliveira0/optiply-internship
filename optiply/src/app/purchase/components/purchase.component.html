@@ -1,7 +1,7 @@
 <div class="page-title">
     <h1 class="mat-h1">Purchase</h1>
     <span class="spacer"></span>
-    <button mat-raised-button color="primary">
+    <button mat-flat-button color="primary">
         Create Manual Order
     </button>
 </div>
@@ -13,12 +13,18 @@
     <mat-tab-group mat-align-tabs="center" color="accent">
         <mat-tab label="Today's and Overdue Orders">
             <div class="mat-elevation-z8">
-                <mat-form-field appearance="standard">
-                    <mat-label>Filter by...</mat-label>
-                    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. BTC" #input>
-                </mat-form-field>
                 <table mat-table [dataSource]="dataSource" matSort>
-        
+                    
+                    <ng-container matColumnDef="headerFilter">
+                        <th mat-header-cell *matHeaderCellDef>
+                            <mat-icon>filter_list</mat-icon>
+                            <mat-form-field appearance="standard">
+                                <mat-label>Filter by...</mat-label>
+                                <input matInput (keyup)="applyFilter($event)" placeholder="Ex. BTC" #input>
+                            </mat-form-field>
+                        </th>
+                    </ng-container>
+
                     <ng-container matColumnDef="symbol">
                         <th mat-header-cell *matHeaderCellDef mat-sort-header> Symbol </th>
                         <td mat-cell *matCellDef="let row"> {{ row.symbol }} </td>
@@ -48,12 +54,21 @@
                         <th mat-header-cell *matHeaderCellDef mat-sort-header> Lowest price </th>
                         <td mat-cell *matCellDef="let row"> {{row.lowPrice}} </td>
                     </ng-container>
-              
+
+                    <ng-container matColumnDef="actions">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+                        <td mat-cell *matCellDef="let row" class="actions">
+                            <button mat-flat-button color="primary">Order</button>
+                            <button mat-flat-button color="warn">Skip</button>
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="['headerFilter']" class="header-filter"></tr>
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
               
                     <tr class="mat-row" *matNoDataRow>
-                        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                        <td class="mat-cell" colspan="4">No data matching the filter</td>
                     </tr>
         
                 </table>

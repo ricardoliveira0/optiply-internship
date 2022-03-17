@@ -9,3 +9,27 @@
     margin: auto;
     margin-top: 2.5vh;
 }
+
+table {
+    width: 100%;
+}
+
+.actions {
+    height: 4vh;
+    border-left: 1px solid rgba(0,0,0,.12);
+}
+
+table button {
+    display: inline-block;
+    margin-left: 1vw;
+}
+
+tr > td:last-child {
+    text-align: center;
+    width: 15%;
+    min-width: 175px;
+}
+
+::ng-deep .mat-form-field-underline {
+    display: none;
+}

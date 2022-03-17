@@ -14,7 +14,7 @@ import { APIService } from '../services';
 })
 export class PurchaseComponent implements AfterViewInit, OnInit {
 
-  displayedColumns: string[] = ['symbol', 'lastPrice', 'priceChange', 'priceChangePercent', 'highPrice', 'lowPrice'];
+  displayedColumns: string[] = ['symbol', 'lastPrice', 'priceChange', 'priceChangePercent', 'highPrice', 'lowPrice', 'actions'];
   dataSource: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
