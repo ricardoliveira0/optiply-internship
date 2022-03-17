@@ -3,36 +3,41 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
-export interface PurchaseData {
-  id: number,
-  orderType: string,
-  supplier: string,
-  noProducts: number,
-  value: number,
-  date: Date
-}
+import { APIService } from '../services';
+import { APICallback } from '../models';
+
 
 @Component({
   selector: 'optiply-purchase',
   templateUrl: './purchase.component.html',
   styleUrls: ['./purchase.component.css']
 })
-export class PurchaseComponent implements AfterViewInit {
+export class PurchaseComponent implements AfterViewInit, OnInit {
 
-  displayedColumns: string[] = ['id', 'orderType', 'supplier', 'noProducts', 'value', 'date'];
-  dataSource: MatTableDataSource<PurchaseData>;
+  displayedColumns: string[] = ['symbol', 'lastPrice', 'priceChange', 'priceChangePercent', 'highPrice', 'lowPrice'];
+  dataSource: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor() { 
-    const objects = Array.from({length: 20}, (_, k) => this.createNewObject(k + 1));
-    this.dataSource = new MatTableDataSource(objects);
+  constructor(private service: APIService) { }
+
+  ngOnInit(): void {
+    this.service.dataCallback()
+    .subscribe(response => {
+      console.log(response);
+      this.dataSource = new MatTableDataSource(response);
+      console.log(this.dataSource);
+      this.dataSource.sort = this.sort;
+    });
   }
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    setTimeout(() => {
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    }, 2000);
+   
   }
 
   applyFilter(event: Event) {
@@ -44,15 +49,34 @@ export class PurchaseComponent implements AfterViewInit {
     }
   }
 
-  createNewObject(id: number): PurchaseData {
-    return {
-      id: id,
-      orderType: "Regular",
-      supplier: "Bullet Proof US",
-      noProducts: 7,
-      value: 20484.58,
-      date: new Date()
-    };
+  /* retrieveData(): any {
+    return this.service.dataCallback().subscribe(
+      complete => this.response = complete
+    );
+  } */
+
+  /* get symbol(): string {
+    return this.service.getSymbol(this.response);
   }
+
+  get lastPrice(): string {
+    return this.service.getLastPrice(this.response);
+  }
+
+  get priceChange(): number {
+    return this.service.getPriceChange(this.response);
+  }
+
+  get priceChangePercent(): number {
+    return this.service.getPriceChangePercent(this.response);
+  }
+
+  get highPrice(): number {
+    return this.service.getHighPrice(this.response);
+  }
+
+  get lowPrice(): number {
+    return this.service.getLowPrice(this.response);
+  } */
 
 }

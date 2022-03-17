@@ -1,9 +1,38 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+import { APICallback } from '../models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class APIService {
 
-  constructor() { }
+  private readonly BASE_URL = "https://api2.binance.com/api/v3/ticker/24hr";
+
+  constructor(private http: HttpClient) { }
+
+  dataCallback(): Observable<APICallback[]> {
+    return this.http.get<APICallback[]>(this.BASE_URL);
+  }
+
+  getSymbol(response: APICallback): string {
+    
+    if (response === undefined)
+      return '';
+
+    return response.symbol;
+
+  }
+
+  getLastPrice(response: APICallback): string {
+    
+    if (response === undefined)
+      return '';
+
+    return response.lastPrice;
+
+  }
+
 }
