@@ -15,9 +15,9 @@
             <div class="mat-elevation-z8">
                 <mat-form-field appearance="standard">
                     <mat-label>Filter by...</mat-label>
-                    <input matInput placeholder="Ex. " #input>
+                    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. BTC" #input>
                 </mat-form-field>
-                <table mat-table [dataSource]="data" matSort>
+                <table mat-table [dataSource]="dataSource" matSort>
         
                     <ng-container matColumnDef="symbol">
                         <th mat-header-cell *matHeaderCellDef mat-sort-header> Symbol </th>
