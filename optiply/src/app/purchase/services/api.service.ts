@@ -17,22 +17,4 @@ export class APIService {
     return this.http.get<APICallback[]>(this.BASE_URL);
   }
 
-  getSymbol(response: APICallback): string {
-    
-    if (response === undefined)
-      return '';
-
-    return response.symbol;
-
-  }
-
-  getLastPrice(response: APICallback): string {
-    
-    if (response === undefined)
-      return '';
-
-    return response.lastPrice;
-
-  }
-
 }
