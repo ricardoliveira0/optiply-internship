@@ -12,18 +12,18 @@
 <div class="page-tabs">
     <mat-tab-group mat-align-tabs="center" color="accent">
         <mat-tab label="Today's and Overdue Orders">
-            <div class="mat-elevation-z8">
+            <div>
+                <div class="filter-row">
+                    <mat-icon>filter_list</mat-icon>
+                    <mat-form-field appearance="standard">
+                        <mat-label>Filter by...</mat-label>
+                        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. BTC" #input>
+                    </mat-form-field>
+                    <span class="spacer"></span>
+                    <mat-icon>info</mat-icon>
+                    <mat-icon>view_week</mat-icon>
+                </div>
                 <table mat-table [dataSource]="dataSource" matSort>
-                    
-                    <ng-container matColumnDef="headerFilter">
-                        <th mat-header-cell *matHeaderCellDef>
-                            <mat-icon>filter_list</mat-icon>
-                            <mat-form-field appearance="standard">
-                                <mat-label>Filter by...</mat-label>
-                                <input matInput (keyup)="applyFilter($event)" placeholder="Ex. BTC" #input>
-                            </mat-form-field>
-                        </th>
-                    </ng-container>
 
                     <ng-container matColumnDef="symbol">
                         <th mat-header-cell *matHeaderCellDef mat-sort-header> Symbol </th>
@@ -63,7 +63,7 @@
                         </td>
                     </ng-container>
 
-                    <tr mat-header-row *matHeaderRowDef="['headerFilter']" class="header-filter"></tr>
+                    <!-- <tr mat-header-row *matHeaderRowDef="['headerFilter']" class="header-filter"></tr> -->
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
               
